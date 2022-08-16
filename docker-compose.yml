@@ -1,0 +1,29 @@
+version: '3.6'
+
+networks:
+  traefik_savla:
+    name: ${DOCKER_NETWORK_NAME}
+
+services:
+  savla_docs:
+    image: ${DOCKER_IMAGE_NAME}
+    container_name: ${DOCKER_CONTAINER_NAME}
+    build:
+      args: 
+        #APP_NAME: ${APP_NAME}
+        APP_ROOT: ${APP_ROOT}
+        DOCKER_INTERNAL_PORT: ${DOCKER_INTERNAL_PORT}
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
+    volumes:
+      - "./pages:${APP_ROOT}"
+    networks:
+      - ${DOCKER_NETWORK_NAME}
+    labels:
+      - "traefik.http.routers.${APP_NAME}.rule=Host(${APP_URLS_TRAEFIK})"
+      - "traefik.http.routers.${APP_NAME}.priority=1"
+      - "traefik.http.services.${APP_NAME}.loadbalancer.server.port=${DOCKER_INTERNAL_PORT}"
+
