@@ -1,0 +1,12 @@
+doctype
+html
+  head
+    title #{ title }
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/app.js")
+  body
+      h1 #{ title }
+      != yield
+    #footer
+      p Copyright (c)  
+        a(href="https://www.savla.dev/#") savla.dev

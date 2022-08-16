@@ -19,7 +19,7 @@ services:
     ports:
       - "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
     volumes:
-      - "./pages:${APP_ROOT}"
+      - "./:${APP_ROOT}"
     networks:
       - ${DOCKER_NETWORK_NAME}
     labels:

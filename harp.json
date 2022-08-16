@@ -1,0 +1,16 @@
+{
+  "globals": {
+    "title": "krusty's space",
+    "name"  : "krusty' space",
+    "author": "krusty",
+    "tagline": "static website for krusty's mind flow",
+    "uri": "https://krusty.savla.dev",
+    "repository": "https://github.com/savla-dev/krusty-savla-dev", 
+    "version": "0.1.1",
+    "service": {
+      "github": "savla-dev/krusty-savla-dev"
+    }
+  }, 
+  "domains": [ "savla.dev", "krusty.savla.dev" ]
+}
+
