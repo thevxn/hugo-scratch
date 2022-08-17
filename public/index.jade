@@ -1,5 +1,5 @@
 
-article(class="active")
+article(class="active fill")
   h5 Default
   p 
     | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elementum ante sit amet risus accumsan, 
@@ -11,25 +11,48 @@ article(class="active")
     | sagittis libero. Quisque vel condimentum ligula.
 
 article(class="border medium no-padding")
-  div(class="padding primary absolute center middle")
+  div(class="padding primary absolute center middle secondary")
     h5 Field
     div Oh no i am trapped inside this fucken container
 
-div(class="field large")
-  | ooook
+  div(class="absolute fill left")
+    p ooook
 
-div(class="summary")
+
+  article
+    details
+      summary(class="none fill right absolute")
+        div(class="row")
+          img(class="circle" src="/kitty.jpeg")
+          div(class="max")
+            h5 Custom
+
+          i arrow_drop_down
+      
+      div(class="row default")
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+div(class="summary fill")
   | co je toto kurva
+
+div(class="row fill")
+  div(align="left")
+    p ok
+  div(class="absolute")
+    p pls
+  div(class="max")
+    p peg
 
 article
   details
-    summary(class="none")
+    summary(class="none fill")
       div(class="row")
-        img(class="circle" src="/favicon.png")
+        img(class="circle" src="/kitty.jpeg")
         div(class="max")
           h5 Custom
 
         i arrow_drop_down
+       
     p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 article(class="no-padding fill")
