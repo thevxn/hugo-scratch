@@ -7,12 +7,42 @@ html
     script(src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript")
 
   body(class="dark")
-    #header
-      h2 
-        a(href="/") #{ title }
+      #header
+        h2(class="no-margin")
+          a(href="/") #{ title }
+
+        nav
+          button(class="s circle extra")
+            i phone_android
+
+          button(class="m l border circle extra")
+            i phone_android
+
+          button(class="m circle extra")
+            i tablet_android
+          button(class="s l border circle extra")
+            i tablet_android
+          button(class="l circle extra")
+            i laptop_windows
+          button(class="s m border circle extra")
+            i laptop_windows
 
       != yield
 
-    #footer(fixed)
+    #footer
       div(class="center-align")
         a(href="https://www.savla.dev") savla.dev (c) 2022
+
+      nav
+        button(class="circle transparent")
+          i check_box_filled
+        button(class="circle transparent")
+          i brush
+        button(class="circle transparent")
+          i mic
+        button(class="circle transparent")
+          i image
+
+        div(class="max")
+          button(class="square round extra default")
+            i add
