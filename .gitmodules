@@ -1,3 +1,0 @@
-[sudmodule "harbor"]
-	url = ssh://git@github.com:matsuyoshi30/harbor.git
-	path = krusty_space/themes/harbor
