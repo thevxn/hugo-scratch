@@ -10,10 +10,10 @@ services:
     container_name: ${DOCKER_CONTAINER_NAME}
     build:
       args: 
-        #APP_NAME: ${APP_NAME}
+        SITE_NAME: ${APP_NAME}
         APP_ROOT: ${APP_ROOT}
         DOCKER_INTERNAL_PORT: ${DOCKER_INTERNAL_PORT}
-      context: .
+      context: hugo/
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:

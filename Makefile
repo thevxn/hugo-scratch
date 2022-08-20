@@ -58,19 +58,27 @@ git_pull:
 .PHONY: build
 build:  git_pull
 	@echo -e "\n${YELLOW} Building project (docker compose build)... ${RESET}\n"
-	@docker compose build --no-cache # for Github Actions to redeploy CSS files too
+	@docker build --tag ${DOCKER_IMAGE_NAME} .
 
 .PHONY: run
 run:	
 	@echo -e "\n${YELLOW} Starting project (docker compose up)... ${RESET}\n"
-	@docker compose up --force-recreate --detach
+	@docker compose up --detach
 
 .PHONY: logs
 logs:
 	@echo -e "\n${YELLOW} Fetching container's logs (CTRL-C to exit)... ${RESET}\n"
-	@docker logs ${DOCKER_CONTAINER_NAME} -f
+	@docker logs ${DOCKER_CONTAINER_NAME} --follow
 
 .PHONY: stop
 stop:  
 	@echo -e "\n${YELLOW} Stopping and purging project (docker compose down)... ${RESET}\n"
 	@docker compose down
+
+.PHONY: init
+init:
+	@docker run --detach --rm --volume ${PWD}/:/site ${DOCKER_IMAGE_NAME} new site site
+
+ff:
+	@docker run --detach --rm --name ${DOCKER_IMAGE_NAME} --volume ./:/site --expose 1313:1313 ${DOCKER_IMAGE_NAME} new site site
+
