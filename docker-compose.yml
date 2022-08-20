@@ -15,11 +15,15 @@ services:
         DOCKER_INTERNAL_PORT: ${DOCKER_INTERNAL_PORT}
       context: hugo/
       dockerfile: Dockerfile
+    entrypoint: hugo
+    command: "serve --bind 0.0.0.0"
     restart: unless-stopped
+    mem_reservation: 128M
     ports:
-      - "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
+      #- "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
+      - "${DOCKER_INTERNAL_PORT}/tcp"
     volumes:
-      - "./:${APP_ROOT}"
+      - "./${APP_NAME}:/site"
     networks:
       - ${DOCKER_NETWORK_NAME}
     labels:

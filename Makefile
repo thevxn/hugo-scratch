@@ -58,12 +58,17 @@ git_pull:
 .PHONY: build
 build:  git_pull
 	@echo -e "\n${YELLOW} Building project (docker compose build)... ${RESET}\n"
-	@docker build --tag ${DOCKER_IMAGE_NAME} .
+	@docker compose build
+
+.PHONY: init
+init:
+	@echo -e "\n${YELLOW} Initializing hugo site directory (${APP_NAME}/)... ${RESET}\n"
+	@docker run --detach --rm --volume ${PWD}/:/site ${DOCKER_IMAGE_NAME} new site ${APP_NAME}
 
 .PHONY: run
-run:	
+serve:	
 	@echo -e "\n${YELLOW} Starting project (docker compose up)... ${RESET}\n"
-	@docker compose up --detach
+	@docker compose up --detach --force-recreate
 
 .PHONY: logs
 logs:
@@ -75,10 +80,4 @@ stop:
 	@echo -e "\n${YELLOW} Stopping and purging project (docker compose down)... ${RESET}\n"
 	@docker compose down
 
-.PHONY: init
-init:
-	@docker run --detach --rm --volume ${PWD}/:/site ${DOCKER_IMAGE_NAME} new site site
-
-ff:
-	@docker run --detach --rm --name ${DOCKER_IMAGE_NAME} --volume ./:/site --expose 1313:1313 ${DOCKER_IMAGE_NAME} new site site
 
