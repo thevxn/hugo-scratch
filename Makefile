@@ -1,5 +1,5 @@
 #
-# savla-dev infra-dcos / Makefile
+# hugo-scratch template repo / Makefile
 #
 
 #
