@@ -1,10 +1,10 @@
-name: krusty-savla-dev CI/CD pipeline
+name: hugo silenced CI/CD pipeline
 
 on:
   push:
-    branches: [ master ]
+    branches: [ never ]
   pull_request:
-    branches: [ master ]
+    branches: [ never ]
 
 jobs:
 

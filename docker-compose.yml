@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.9'
 
 networks:
   traefik_savla:
@@ -16,12 +16,11 @@ services:
       context: hugo/
       dockerfile: Dockerfile
     entrypoint: hugo
-    command: "serve --bind 0.0.0.0"
+    command: "serve --bind 0.0.0.0 --baseURL https://${APP_URL_MAIN}"
     restart: unless-stopped
     mem_reservation: 128M
     ports:
-      #- "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
-      - "${DOCKER_INTERNAL_PORT}/tcp"
+      - "${DOCKER_EXTERNAL_PORT}:${DOCKER_INTERNAL_PORT}/tcp"
     volumes:
       - "./${APP_NAME}:/site"
     networks:
