@@ -16,7 +16,8 @@ services:
       context: hugo/
       dockerfile: Dockerfile
     entrypoint: hugo
-    command: "serve --bind 0.0.0.0 --port ${DOCKER_INTERNAL_PORT} --baseURL https://${APP_URL_MAIN}"
+    # baseURL is http, because target port is TCP/80
+    command: "serve --bind 0.0.0.0 --port ${DOCKER_INTERNAL_PORT} --baseURL http://${APP_URL_MAIN}"
     restart: unless-stopped
     mem_reservation: 128M
     ports:
