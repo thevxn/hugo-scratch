@@ -17,7 +17,7 @@ make init
 #git submodule add [URL] [site_name]/themes/[theme]
 git submodule add https://github.com/calintat/minimal.git change-me/themes/minimal
 
-# start editing/writing your page(s) inside [site] directory
-# run the 'hugo server --bindo 0.0.0.0 --port 80 --baseURL http://change-me.domain.tld' command to seamlessly edit your data
+# start editing/writing your page(s) inside [site] directory; enforce https
+# run the 'hugo server --bind 0.0.0.0 --port 443 --baseURL https://change-me.domain.tld' command to seamlessly edit your data
 make serve
 ```
