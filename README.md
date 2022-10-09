@@ -1,5 +1,7 @@
 # hugo-scratch
 
+[short article on this repo](https://krusty.space/projects/defekt-jadra/)
+
 ```shell
 # clone/fork/pull the repo with hugo submodule
 git pull ssh://git@github.com/savla-dev/hugo-scratch --recurse-submodules
