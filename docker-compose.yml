@@ -5,7 +5,7 @@ networks:
     name: ${DOCKER_NETWORK_NAME}
 
 services:
-  savla_docs:
+  hugo_site:
     image: ${DOCKER_IMAGE_NAME}
     container_name: ${DOCKER_CONTAINER_NAME}
     build:
